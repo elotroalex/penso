@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Page Turn Test</title>
+    <style type="text/css">
+      .page {position:absolute;
+             left:300px;
+             top:50px;
+      }
+    </style>
+
+    <script type="text/javascript">
+     var curPage = 1;
+
+     function pageForward() {
+       if (curPage < 3) {
+          document.getElementById("sp" + curPage).style.visibility = "hidden";
+          curPage = curPage + 1;
+          document.getElementById("sp" + curPage).style.visibility = "visible";
+       }
+     }
+
+      function pageBack() {
+        if (curPage > 1) {
+          document.getElementById("sp" + curPage).style.visibility = "hidden";
+          curPage = curPage - 1;
+          document.getElementById("sp" + curPage).style.visibility = "visible";
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div style="margin-top:100px; text-align:center">
+      <div id="sp1" class="page" style="visibility:visible">
+        <p>This is the first page</p>
+      </div>
+      <div id="sp2" class="page" style="visibility:hidden">
+        <p>This is the second page</p>
+      </div>
+      <div id="sp3" class="page" style="visibility:hidden">
+        <p>This is the third page</p>
+      </div>
+
+      <input type="button" id="prev" value="Prev" onclick="pageBack()" />
+      <input type="button" id="next" value="Next" onclick="pageForward()" />
+    </div>
+  </body>
+</html>
